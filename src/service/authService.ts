@@ -17,12 +17,11 @@ export const AuthService = {
     }
 };
 
-async function authPost(url: string, email: string, password: string): Promise<JwtResponseToken> {
+async function authPost(url: string, email: string, password: string) {
   try {
     const response = await api.post<JwtResponseToken>(url, { email, password });
     const accessToken = response.data.data;
     if (accessToken) localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
-    return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
       const data = err.response.data;
@@ -30,15 +29,15 @@ async function authPost(url: string, email: string, password: string): Promise<J
         data.errors.forEach((msg: string) => console.error('Validation error:', msg));
       } else if (data.fieldErrors) {
         data.fieldErrors.forEach((fe: { field: string; message: string }) =>
-          console.error(`Validation error [${fe.field}]: ${fe.message}`)
+          Logger.error(`Validation error [${fe.field}]: ${fe.message}`)
         );
       } else if (data.message) {
-        console.error('Validation error:', data.message);
+        Logger.error('Validation error:', data.message);
       } else {
-        console.error('Unknown server error:', data);
+        Logger.error('Unknown server error:', data);
       }
     } else {
-      console.error('Network or unknown error', err);
+      Logger.error('Network or unknown error', err);
     }
     throw err;
   }
