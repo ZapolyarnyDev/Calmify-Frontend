@@ -9,6 +9,10 @@ export default defineConfig({
     vue(),
     tailwindcss()
   ],
+  server: {
+    host: true,
+    port: 5173,
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
