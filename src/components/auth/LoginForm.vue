@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { AuthService } from '@/service/authService';
 import { Logger } from '@/utils/logger';
+import Button from '../Button.vue';
 
 const email = ref('');
 const password = ref('');
@@ -17,7 +18,7 @@ const onLogin = async () => {
 </script>
 
 <template>
-  <div class="w-full max-w-md p-8 rounded-lg bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] mx-auto">
+  <div class="mt-6 w-full max-w-md p-8 rounded-lg bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] mx-auto">
     <h2 class="text-2xl mb-6 font-semibold text-[var(--color-text-primary)] text-center">
       Login
     </h2>
@@ -46,13 +47,7 @@ const onLogin = async () => {
         />
       </div>
 
-      <button
-        type="submit"
-        class="w-full mt-2 py-2 rounded-md bg-[var(--color-border-accent)]
-         text-white font-medium cursor-pointer hover:bg-[var(--color-border-accent-dark)] focus:outline-none"
-      >
-        Continue
-      </button>
+      <Button class="mt-3" size="lg">Continue</Button>
     </form>
 
     <p class="mt-6 text-center text-sm text-[var(--color-text-secondary)]">
