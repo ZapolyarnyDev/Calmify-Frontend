@@ -9,7 +9,7 @@ const routes = [
     {path: '/login', name: "Login", component: Login }
 ];
 
-export const route = createRouter({
+export const router = createRouter({
     history: createWebHistory(),
     routes
 });

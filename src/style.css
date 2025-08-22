@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  font-family: 'Inter', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -13,7 +12,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   /******************* COMMON ***************************/
-  --color-bg: #eaecee;
+  --color-bg: #e8eaeb;
   --color-background-primary: #ffffff;
   --color-background-secondary: #f1f5f9;
   
@@ -35,6 +34,11 @@ body {
   min-height: 100vh;
 }
 
+.font-tektur{
+  font-family: 'Tektur', sans-serif;
+}
+
 #app {
   width: 100vw;
+  min-height: 100vh;
 }
