@@ -5,11 +5,17 @@ import { Logger } from "@/utils/logger";
 const ACCESS_TOKEN_KEY = "accessToken";
 
 export const AuthService = {  
-    async login(email: string, password: string) { return authPost("/v0/auth/login", email, password); },
-    async register(email: string, password: string) { return authPost("/v0/auth/register", email, password); },
+    async login(email: string, password: string) { authPost("/v0/auth/login", email, password); },
+    async register(email: string, password: string) { authPost("/v0/auth/register", email, password); },
 
     logout() {
-        localStorage.removeItem(ACCESS_TOKEN_KEY);
+      Logger.info("Logout from account");
+      localStorage.removeItem(ACCESS_TOKEN_KEY);
+      sessionStorage.removeItem(ACCESS_TOKEN_KEY);
+    },
+
+    setAccessToken(token: string) {
+      localStorage.setItem(ACCESS_TOKEN_KEY, token);
     },
 
     getAccessToken(): string | null {

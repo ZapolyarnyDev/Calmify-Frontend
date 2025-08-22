@@ -7,10 +7,10 @@ const props = defineProps({
 defineEmits(['click'])
 
 const sizeClasses: Record<string, string> = {
-  full: "w-full",
-  md: "px-4 py-2 text-sm",
-  lg: "px-6 py-3 text-base",
-  xl: "px-8 py-4 text-lg"
+  full: "w-full py-4 text-base",
+  md: "px-4 py-1 text-base",
+  lg: "px-6 py-2 text-lg",
+  xl: "px-8 py-3 text-xl"
 }
 
 const variantClasses: Record<string, string> = {
